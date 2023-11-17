@@ -5,9 +5,10 @@ if(isset($_POST['name'])){
     $server = "localhost";
     $username = "root";
     $password = "";
+    $db = "travel";
 
     // Create a database connection
-    $con = mysqli_connect($server, $username, $password);
+    $con = mysqli_connect($server,$username,$password,$db);
 
     // Check for connection success
     if(!$con){
@@ -22,10 +23,10 @@ if(isset($_POST['name'])){
     $email = $_POST['email'];
     $phone = $_POST['phone'];
     $desc = $_POST['desc'];
-    $sql = "INSERT INTO `trip`.`trip` (`name`, `age`, `gender`, `email`, `phone`, `other`, `dt`) VALUES ('$name', '$age', '$gender', '$email', '$phone', '$desc', current_timestamp());";
-    // echo $sql;\
+    $sql = "INSERT INTO `trip`.`trip` (`name`, `age`, `gender`, `email`, `phone`) 
+    VALUES ('$name', '$age', '$gender', '$email', '$phone', '$desc', current_timestamp())";
 
-    $sql = true;
+   $sql = true;
 
     // Execute the query
     if($con->query($sql) == true){
@@ -55,13 +56,13 @@ if(isset($_POST['name'])){
 <body>
     
     <div class="container">
-        <h1>Welcome to IIT Kharagpur US Trip form</h3>
-        <p>Enter your details and submit this form to confirm your participation in the trip </p>
+        <h1 class="one">Welcome To TechiBits Canada Trip Form</h1>
+        <p>Enter your details and submit this form to confirm your participation in the trip</p>
         <?php
         if($insert == true){
         echo "<p class='submitMsg'>Thanks for submitting your form. We are happy to see you joining us for the US trip</p>";
-        }
-    ?>
+        }?>
+        
         <form action="index1.php" method="post">
             <input type="text" name="name" id="name" placeholder="Enter your name">
             <input type="text" name="age" id="age" placeholder="Enter your Age">
@@ -72,7 +73,6 @@ if(isset($_POST['name'])){
             <button class="btn">Submit</button> 
         </form>
     </div>
-    <script src="index.js"></script>
-    
+        
 </body>
 </html>

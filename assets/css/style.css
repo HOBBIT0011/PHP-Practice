@@ -23,6 +23,11 @@
     height: 100vh;
 }
 
+.one{
+    color: black !important;
+}
+
+
 
 form{
     display: grid;
@@ -45,14 +50,7 @@ label{
     color: white;
 }
 
-h1{
-    color: white;
-}
 
-p{
-    color: white;
-    font-size: 19px;
-}
 
 .btn{
     background: white;
@@ -75,3 +73,4 @@ select{
     color: yellowgreen !important;
     margin-top: 10px;
 }
+
