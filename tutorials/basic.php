@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHP</title>
-</head>
-<body>
 <?php
 
-
+// Variable Make Syntex
 
 $variable1 = 100;
 $variable2 = 200;
@@ -16,6 +8,44 @@ $variable2 = 200;
 
 echo $variable1 , $variable2;
 echo $variable1 + $variable2;
+
+
+
+
+
+// Constant Syntex
+
+define("GREETING", "Welcome To TechiBits");
+echo GREETING ;
+
+echo "<br>";
+
+
+
+
+
+// ARRAYS SYNTEX
+
+$languages = array ("Python" , "C++" , "Java" , "MySQL" );
+
+// print_r($languages);
+echo $languages[0];     // This one is to find the value like if I use [2] they show me Java
+echo count($languages); // This one is count how many value is store in your array
+
+echo "<br>";
+
+
+
+
+
+
+// FUNCTION SYNTEX
+
+function lenevo(){
+echo "ONE";}
+
+lenevo();
+
 
 
 // There are Eight (8) Types of Operators
@@ -29,48 +59,10 @@ echo $variable1 + $variable2;
 // Array Operators
 // Conditional Assignment Operators
 
-// 1. Arithmetic Operators
-
-echo "<br>";
-
-$Arithmetic1 = 10;
-$Arithmetic2 = 20;
-echo "The Value Of Arithmetic1 + Arithmetic2 is";
-echo $Arithmetic1 + $Arithmetic2;
-
-echo "<br>";
-
-
-echo "The Value Of Arithmetic1 - Arithmetic2 is";
-echo $Arithmetic1 - $Arithmetic2;
-
-echo "<br>";
-
-
-echo "The Value Of Arithmetic1 * Arithmetic2 is";
-echo $Arithmetic1 * $Arithmetic2;
-
-echo "<br>";
-
-
-echo "The Value Of Arithmetic1 / Arithmetic2 is";
-echo $Arithmetic1 / $Arithmetic2;
-
-echo "<br>";
-
-
-echo "The Value Of Arithmetic1 % Arithmetic2 is";
-echo $Arithmetic1 % $Arithmetic2;
-
-echo "<br>";
-
-
-echo "The Value Of Arithmetic1 ** Arithmetic2 is";
-echo $Arithmetic1 ** $Arithmetic2;
-
-echo "<br>";
 
 // 2. Assignment Operators
+$Arithmetic1 = 10;
+$Arithmetic2 = 20;
 
 $Assignment1 = $Arithmetic1;
 
@@ -132,12 +124,6 @@ echo var_dump(1<=4);
 echo "<br>";
 
 
-// echo "The value is 1<==>4 is";
-// echo var_dump(1<==>4);
-// echo "<br>";
-
-
-
 // 4. Increment/Decrement Operators
 
 $incdec = 20;
@@ -153,13 +139,14 @@ echo --$incdec;
 
 // 5. Logical Operators
 
-// Operator	  Name	         Example	     Result	
-// and	      And	         $x and $y	     True if both $x and $y are true	
-// or	      Or	         $x or $y	     True if either $x or $y is true	
-// xor	      Xor	         $x xor $y	     True if either $x or $y is true, but not both	
-// &&	      And	         $x && $y	     True if both $x and $y are true	
-// ||	      Or	         $x || $y	     True if either $x or $y is true	
-// !	      Not	         !$x	         True if $x is not true
+// Operator	  Name	        Example	             Result	
+
+// and	      And	         $x and $y	   True if both $x and $y are true	
+// or	        Or	         $x or $y	     True if either $x or $y is true	
+// xor	      Xor	         $x xor $y	   True if either $x or $y is true, but not both	
+// &&	        And	         $x && $y	     True if both $x and $y are true	
+// ||	        Or	         $x || $y	     True if either $x or $y is true	
+// !	        Not	         !$x	         True if $x is not true
 
 
 $logical = 220;
@@ -183,38 +170,30 @@ echo "<br>";
 // Resource       "In Advance PHP"
 
 
-/* Object Example
 
 
 
-class Car {
-  public $color;
-  public $model;
-  public function __construct($color, $model) {
-    $this->color = $color;
-    $this->model = $model;
-  }
-  public function message() {
-    return "My car is a " . $this->color . " " . $this->model . "!";
-  }
+
+// IF ELSE CONDITION Syntex
+
+
+$age = 18;
+if($age>=18){
+    echo "You're Invited";
+}
+else if($age==5){
+        echo "You're Bareek";
 }
 
-$myCar = new Car("black", "Volvo");
-echo $myCar -> message();
-echo "<br>";
-$myCar = new Car("red", "Toyota");
-echo $myCar -> message();
-
-
-
-
-// This Is Define Constant
-
-define("GREETING", "Welcome To TechiBits");
-echo GREETING ;
+else{
+    echo "You're To Small";
+}
 
 echo "<br>";
+
+
+
+
+
 
 ?>
-</body>
-</html>
