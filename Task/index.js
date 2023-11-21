@@ -6,8 +6,8 @@ function validateForm() {
       returnval = false;
     } else {
       seterror("phone", "");
-    }}
-  
+    }
+  }
 
   function validateForm() {
     var returnval = true;

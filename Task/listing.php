@@ -23,7 +23,8 @@
                 <th scope="col">Email</th>
                 <th scope="col">Phone</th>
                 <th scope="col">Age</th>
-                <th scope="col">Date</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -51,7 +52,8 @@
                         echo "<td>" . $row['email'] . "</td>";
                         echo "<td>" . $row['phone'] . "</td>";
                         echo "<td>" . $row['age'] . "</td>";
-                        // echo "<td>" . $row['dt'] . "</td>";
+                        echo "<td><a href='update.php?id=".$row['id']."'>Edit</a></td>";
+                        echo "<td><a href='delete.php?id=".$row['id']."'>Delete</a></td>";
                         echo "</tr>";
                     }
                 } else {
