@@ -17,8 +17,8 @@ if (isset($_POST['create'])) {
     $phone = $_POST['phone'];
     $age = $_POST['age'];
 
-    $sql = "INSERT INTO `travel` (`name`, `email`, `phone`, `age`, `dt`) 
-            VALUES ('$name', '$email', '$phone', '$age', current_timestamp())";
+    $sql = "INSERT INTO `travel` (`name`, `email`, `phone`, `age`) 
+            VALUES ('$name', '$email', '$phone', '$age')";
 
     if ($con->query($sql) == true) {
         echo "<p class='text-center text-danger mt-2'>Your form is submitted successfully.</p>";
@@ -48,11 +48,12 @@ if (isset($_POST['create'])) {
         <button type="button" class="btn btn-dark show w-50 mt-2"><a href="index.php">Create</a></button>
     </div>
 
-    <form action="" method="post" class="container mt-5" id="one">
+    <form action="" method="post" class="container mt-5" id="one" onsubmit="return validateForm()" name="myForm">
         <h4 class="text-center mb-4">LOGIN PANNEL</h4>
 
         <div class="form-group">
-            <input type="text" name="name" id="name" placeholder="Enter Your Name" class="w-100" required>
+            <input type="text" name="name" id="name" placeholder="Enter Your Name" class="w-100" maxlength="20"
+            pattern="[A-Za-z\s]+" required>
         </div>
 
         <div class="form-group">
@@ -60,15 +61,18 @@ if (isset($_POST['create'])) {
         </div>
 
         <div class="form-group">
-            <input type="tel" name="phone" id="phone" placeholder="Enter Your Phone" class="w-100" required>
+            <input type="tel" name="phone" id="phone" placeholder="Enter Your Phone" class="w-100" 
+            maxlength="12" pattern="[0-9]{1,12}" required>
         </div>
 
         <div class="form-group">
-            <input type="text" name="age" id="age" placeholder="Enter Your Age" class="w-100" required>
+            <input type="text" name="age" id="age" placeholder="Enter Your Age" class="w-100" 
+            maxlength="3" onkeypress="return isNumeric(event)" required>
         </div>
 
         <button type="submit" name="create" class="btn btn-primary w-100">Submit</button>
     </form>
+    <script src="index.js"></script>
 </body>
 
 </html>

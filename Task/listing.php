@@ -51,7 +51,7 @@
                         echo "<td>" . $row['email'] . "</td>";
                         echo "<td>" . $row['phone'] . "</td>";
                         echo "<td>" . $row['age'] . "</td>";
-                        echo "<td>" . $row['dt'] . "</td>";
+                        // echo "<td>" . $row['dt'] . "</td>";
                         echo "</tr>";
                     }
                 } else {
