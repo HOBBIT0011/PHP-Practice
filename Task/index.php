@@ -47,7 +47,7 @@ if (isset($_POST['create'])) {
         <button type="button" class="btn btn-dark show w-50 mt-2"><a href="index.php">Create</a></button>
     </div>
 
-    <form action="" method="post" class="container mt-5" id="one" onsubmit="return validateForm()" name="myForm">
+    <form action="" method="post" class="container mt-5" id="one" name="myForm">
         <h4 class="text-center mb-4">FORM PANNEL</h4>
 
         <div class="form-group">
@@ -77,5 +77,21 @@ if (isset($_POST['create'])) {
 </html>
 
 <?php
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["create"])) {
+
+    $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
+    $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+    $phone = filter_input(INPUT_POST, 'phone', FILTER_SANITIZE_NUMBER_INT);
+    $age = filter_input(INPUT_POST, 'age', FILTER_SANITIZE_NUMBER_INT);
+    
+    if (strlen($name) > 20 || strlen($email) > 30 || strlen($phone) > 12 || strlen($age) > 3) {
+        echo "Invalid input lengths";
+    } else {
+
+    }
+}
+
+
 mysqli_close($con);
 ?>

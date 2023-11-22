@@ -8,15 +8,23 @@
 </script>
 
 <?php
-    $server = "localhost";
-    $username = "root";
-    $password = "";
-    $database = "task"
+$server = "localhost";
+$username = "root";
+$password = "";
+$database = "task";
 
-    // Create a Database Connection
-    $con = mysqli_connect($server, $username, $password, $database)
+// Create a Database Connection
+$con = mysqli_connect($server, $username, $password, $database);
 
-    // sql to delete a record
-    $sql = "DELETE FROM travel where id = {$_REQUEST['id']}"
-    $con->close()
-    ?>
+if ($con && isset($_REQUEST['id'])) {
+    $id = mysqli_real_escape_string($con, $_REQUEST['id']);
+    $result = mysqli_query($con, "DELETE FROM travel WHERE id = $id");
+
+    echo ($result) ? "Record deleted successfully" : "Error deleting record: " . mysqli_error($con);
+} else {
+    echo "Connection failed or ID not provided for deletion";
+}
+mysqli_close($con);
+?>
+
+
