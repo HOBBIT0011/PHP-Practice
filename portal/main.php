@@ -1,3 +1,17 @@
+<?php
+session_start();
+
+// If any of the session variables (email, password, or key) is not set or is empty, redirect to index.php
+if (
+    !isset($_SESSION["email"]) || empty($_SESSION["email"]) ||
+    !isset($_SESSION["password"]) || empty($_SESSION["password"]) ||
+    !isset($_SESSION["key"]) || empty($_SESSION["key"])
+) {
+    header("location: index.php");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,6 +37,12 @@
             </li>
           </ul>
         <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <td><a href="update.php?id=<?php echo $row['id']; ?>" class="btn btn-success">Update</a></td>
+        </li>
+          <li class="nav-item">
+            <td><a href="delete.php?id=<?php echo $row['id']; ?>" class="btn btn-danger">Delete</a></td>
+          </li>
             <li class="nav-item">
                 <a class="nav-link" href="index.php">Logout</a>
             </li>
