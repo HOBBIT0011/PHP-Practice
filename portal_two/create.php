@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($con->query($sql) === true) {
         echo "<p class='text-center text-danger mt-2'>Your ID Is Created Successfully.</p>";
-        // header("refresh:0;url=index.php");
+        header("refresh:0;url=index.php");
     } else {
         echo "Error: " . $sql . "<br>" . $con->error;
     }}

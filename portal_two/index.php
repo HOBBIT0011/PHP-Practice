@@ -9,7 +9,7 @@ $con = mysqli_connect($server, $username, $password, $database) or die("Connecti
 session_start();
 
 if(isset($_SESSION["id"])){
-    header("location: test.php");
+    header("location: dashboard.php");
     exit;
 }
 if (isset($_POST['email']) && isset($_POST['password'])) {
@@ -27,12 +27,11 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
         $_SESSION['password'] = $password;
         $_SESSION['id'] = $row['id'];
 
-        header("location: test.php");
+        header("location: dashboard.php");
         
         exit;
-    } else {
-        $error = "";
-    }
+        } else {
+        $error = "";}
 
 
 };

@@ -1,5 +1,3 @@
-
-
 <?php
 $server = "localhost";
 $username = "root";
@@ -15,18 +13,27 @@ if (!$con) {
 if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["id"])) {
     $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 
-    // Perform the deletion
-    $sql = "DELETE FROM 'login' WHERE id = $id";
+    $sql = "DELETE FROM `login` WHERE id = ?";
 
-    if ($con->query($sql) == true) {
+    $stmt = $con->prepare($sql);
+    $stmt->bind_param("i", $id);
+
+    if ($stmt->execute()) {
         echo "Record deleted successfully";
     } else {
-        echo "Error deleting record: " . $con->error;
+        echo "Error deleting record: " . $stmt->error;
     }
+
+    $stmt->close();
+
+    header("Location: http://localhost/PHP-Practice/portal/index.php");
+    exit(); 
 }
 
 mysqli_close($con);
 ?>
+
+
 
 
 
